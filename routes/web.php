@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['namespace' => 'TestPhp','prefix' => 'test'], function() {
+    Route::get('hh', 'TestStaticController@hh');
+});
