@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Route::group(['namespace' => 'TestPhp','prefix' => 'test'], function() {
     Route::get('hh', 'TestStaticController@hh');
+    Route::get('moshu', 'TestStaticController@moshu');
 });
