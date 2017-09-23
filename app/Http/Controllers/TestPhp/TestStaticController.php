@@ -34,17 +34,19 @@ class TestStaticController extends Controller
         dump($data);*/
 
 
-        //测试__toString
+        //测试__toString（①：将对象，像字符串一样使用的时候会调用）
         //echo $a;
 
-        //测试 __invoke
+        //测试 __invoke（②：将对象，像函数一样使用的时候会调用）
         //echo $a(5);
 
-        //测试__call
+        //③：__get ,__set ,__call ,__callStatic统称为重载
+
+        //测试__call（④：调用不存在的普通方法时，会调用）
         //$a->hhhhhhhhhh('q,w,e,r,t,t');
 
         //测试__callStatic
-        //$a::hhhhhhhhhhh('q,w,e,r,t,t');
+        //$a::hhhhhhhhhhh('q,w,e,r,t,t');（⑤：调用不存在的静态方法是，会调用）
 
         //测试 __get
         //$a->pp = 21323123;先，赋值。在使用
@@ -52,15 +54,15 @@ class TestStaticController extends Controller
 
         //测试对象复制
         /*$a->qq = 2;
-        $b = $a;//浅复制（相当于 引用传值，$b修改了$b中的 qq属性值，$a中的qq属性值也会跟着改变）
+        $b = $a;//浅复制（⑥：相当于 引用传值，$b修改了$b中的 qq属性值，$a中的qq属性值也会跟着改变）
         $b->qq = 5434534;
         dump($a);
         dump($b);*/
 
         //测试对象深复制
         /*$a->qq = 2;
-        并且克隆的时候，，会调用__clone魔术方法
-        $b = clone $a;//深复制（相当于 值传递，$b修改了$b中的 qq属性值，$a中的qq属性值 没有任何影响）
+        ⑦：并且克隆的时候，，会调用__clone魔术方法
+        $b = clone $a;//⑧：深复制（相当于 值传递，$b修改了$b中的 qq属性值，$a中的qq属性值 没有任何影响）
         $b->qq = 34234;
         dump($a);
         dump($b);*/
